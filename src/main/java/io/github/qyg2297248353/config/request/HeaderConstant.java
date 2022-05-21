@@ -8,7 +8,6 @@ package io.github.qyg2297248353.config.request;
  * 请求类型常量
  *
  * @author 萌森 Ms
- * @Created 2022/5/21 22:00
  */
 public class HeaderConstant {
     public static String mediaType() {

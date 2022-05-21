@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit;
  * OkHttp 请求工具类
  *
  * @author 萌森 Ms
- * @Created 2022 /5/21 21:45
  */
 @Slf4j
 public class RequestUtils {
