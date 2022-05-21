@@ -1,4 +1,8 @@
-package com.ms.common.jwt;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353.jwt;
 
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.JwtBuilder;
@@ -15,7 +19,6 @@ import java.util.Map;
  * 加密数据
  *
  * @author 萌森 Ms
- * @Created 2022/5/15 20:09
  */
 @Getter
 @Setter
@@ -62,31 +65,67 @@ public class JwtEncryptedInfo {
      */
     private Map<String, Object> claim;
 
+    /**
+     * Instantiates a new Jwt encrypted info.
+     */
     public JwtEncryptedInfo() {
         this.header = Jwts.header();
         this.headerMap = new HashMap<>();
     }
 
+    /**
+     * Sets claim.
+     *
+     * @param k the k
+     * @param v the v
+     */
     public void setClaim(String k, Object v) {
         this.claim.put(k, v);
     }
 
+    /**
+     * Sets claim.
+     *
+     * @param claim the claim
+     */
     public void setClaim(Map<String, Object> claim) {
         this.claim = claim;
     }
 
+    /**
+     * Sets header map.
+     *
+     * @param headerMap the header map
+     */
     public void setHeaderMap(Map<String, Object> headerMap) {
         this.headerMap = headerMap;
     }
 
+    /**
+     * Sets header.
+     *
+     * @param k the k
+     * @param v the v
+     */
     public void setHeader(String k, Object v) {
         this.headerMap.put(k, v);
     }
 
+    /**
+     * Sets header map.
+     *
+     * @param k the k
+     * @param v the v
+     */
     public void setHeaderMap(String k, Object v) {
         this.headerMap.put(k, v);
     }
 
+    /**
+     * Gets header.
+     *
+     * @return the header
+     */
     public Map<String, Object> getHeader() {
         if (!this.headerMap.isEmpty()) {
             this.header.putAll(this.headerMap);
@@ -94,10 +133,20 @@ public class JwtEncryptedInfo {
         return this.header;
     }
 
+    /**
+     * Sets header.
+     *
+     * @param header the header
+     */
     public void setHeader(Header header) {
         this.header = header;
     }
 
+    /**
+     * Build.
+     *
+     * @param jwtBuilder the jwt builder
+     */
     protected void build(JwtBuilder jwtBuilder) {
         if (this.header != null) {
             jwtBuilder.setHeader(getHeader());

@@ -1,4 +1,8 @@
-package com.ms.common.request.ip;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353.request.ip;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +16,6 @@ import java.io.Serializable;
  * Ip地址信息
  *
  * @author 萌森 Ms
- * @Created 2022/5/20 23:10
  */
 @ToString
 @Getter
@@ -121,6 +124,7 @@ public class AddressIpVo implements Serializable {
      * 转换为JSON
      *
      * @param json 解析json数据
+     * @return the address ip vo
      */
     protected AddressIpVo parseResponse(JSONObject json) {
         this.ip = json.containsKey("query") ? json.getString("query") : null;

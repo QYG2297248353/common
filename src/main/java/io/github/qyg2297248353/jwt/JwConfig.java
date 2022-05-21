@@ -1,4 +1,8 @@
-package com.ms.common.jwt;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353.jwt;
 
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -14,7 +18,6 @@ import java.util.Base64;
  * Jwt配置
  *
  * @author 萌森 Ms
- * @Created 2022/5/15 20:35
  */
 public class JwConfig {
     /**
@@ -58,7 +61,7 @@ public class JwConfig {
      * 加载密钥对
      *
      * @param key 密钥
-     * @return 密钥
+     * @return 密钥 key
      */
     public static Key createKey(String key) {
         byte[] decode = Base64.getDecoder().decode(key);
@@ -70,7 +73,7 @@ public class JwConfig {
      * 加载公钥
      *
      * @param publicKey 公钥
-     * @return 密钥
+     * @return 密钥 key pair
      */
     public static KeyPair createPublicKey(String publicKey) {
         return new KeyPair(buildPublicKey(publicKey), null);
@@ -80,7 +83,7 @@ public class JwConfig {
      * 加载私钥
      *
      * @param privateKey 私钥
-     * @return 密钥
+     * @return 密钥 key pair
      */
     public static KeyPair createPrivateKey(String privateKey) {
         return new KeyPair(null, buildPrivateKey(privateKey));
@@ -131,24 +134,46 @@ public class JwConfig {
     /**
      * 加载密钥对
      *
-     * @return 密钥
+     * @param publicKey  the public key
+     * @param privateKey the private key
+     * @return 密钥 key pair
      */
     public static KeyPair createKeyPair(String publicKey, String privateKey) {
         return new KeyPair(buildPublicKey(publicKey), buildPrivateKey(privateKey));
     }
 
+    /**
+     * Gets key.
+     *
+     * @return the key
+     */
     public static Key getKey() {
         return key;
     }
 
+    /**
+     * Gets key pair.
+     *
+     * @return the key pair
+     */
     public static KeyPair getKeyPair() {
         return keyPair;
     }
 
+    /**
+     * Gets signature algorithm.
+     *
+     * @return the signature algorithm
+     */
     public static SignatureAlgorithm getSignatureAlgorithm() {
         return signatureAlgorithm;
     }
 
+    /**
+     * Gets key pair algorithm.
+     *
+     * @return the key pair algorithm
+     */
     public static SignatureAlgorithm getKeyPairAlgorithm() {
         return keyPairAlgorithm;
     }

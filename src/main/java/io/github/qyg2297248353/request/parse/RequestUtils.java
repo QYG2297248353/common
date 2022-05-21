@@ -1,4 +1,8 @@
-package com.ms.common.request.parse;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353.request.parse;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
@@ -11,11 +15,14 @@ import java.io.IOException;
  * json/application
  *
  * @author 萌森 Ms
- * @Created 2022/5/15 15:56
  */
 public class RequestUtils {
     /**
      * 描述:获取 request 中 json 的JSONObject的内容
+     *
+     * @param request the request
+     * @return the request json object
+     * @throws IOException the io exception
      */
     public static JSONObject getRequestJsonObject(HttpServletRequest request) throws IOException {
         String json = getRequestJsonString(request);
@@ -25,6 +32,10 @@ public class RequestUtils {
 
     /**
      * 描述:获取 request 中 json 字符串的内容
+     *
+     * @param request the request
+     * @return the request json string
+     * @throws IOException the io exception
      */
     public static String getRequestJsonString(HttpServletRequest request)
             throws IOException {
@@ -40,6 +51,10 @@ public class RequestUtils {
 
     /**
      * 描述:获取 post 请求的 byte[] 数组
+     *
+     * @param request the request
+     * @return the byte [ ]
+     * @throws IOException the io exception
      */
     public static byte[] getRequestPostBytes(HttpServletRequest request)
             throws IOException {
@@ -61,6 +76,10 @@ public class RequestUtils {
 
     /**
      * 描述:获取 post 请求内容
+     *
+     * @param request the request
+     * @return the request post str
+     * @throws IOException the io exception
      */
     public static String getRequestPostStr(HttpServletRequest request)
             throws IOException {

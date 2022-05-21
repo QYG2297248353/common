@@ -1,9 +1,13 @@
-package com.ms.common.request.ip;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353.request.ip;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ms.common.exception.MsUtilsException;
-import com.ms.common.regular.info.IpCharm;
+import io.github.qyg2297248353.exception.MsUtilsException;
+import io.github.qyg2297248353.regular.info.IpCharm;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -17,18 +21,34 @@ import java.util.Map;
  * Ip解析工具类
  *
  * @author 萌森 Ms
- * @Created 2022/5/21 0:12
  */
 public class IpUtils {
-    // ip解析地址
+    /**
+     * The constant URI.
+     */
+// ip解析地址
     public static final String URI = "http://ip-api.com/json/{}?lang=zh-CN&fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
 
-    public static AddressIpVo getIPV4(HttpServletRequest request) throws MsUtilsException {
+    /**
+     * Gets ipv 4.
+     *
+     * @param request the request
+     * @return the ipv 4
+     * @throws MsUtilsException the ms utils exception
+     */
+    public static AddressIpVo getIpv4(HttpServletRequest request) throws MsUtilsException {
         String ip = request.getRemoteAddr();
-        return getIPV4(ip);
+        return getIpv4(ip);
     }
 
-    public static AddressIpVo getIPV4(String ip) throws MsUtilsException {
+    /**
+     * Gets ipv 4.
+     *
+     * @param ip the ip
+     * @return the ipv 4
+     * @throws MsUtilsException the ms utils exception
+     */
+    public static AddressIpVo getIpv4(String ip) throws MsUtilsException {
         if (ip == null || !IpCharm.isIp(ip)) {
             throw new MsUtilsException("获取IP地址失败，原因：该IP地址不是IPV4地址");
         }
@@ -59,6 +79,8 @@ public class IpUtils {
 
     /**
      * 获取当前公网IP地址
+     *
+     * @return the public ip
      */
     public static Map getPublicIp() {
         Map map = new HashMap<>();
@@ -87,12 +109,12 @@ public class IpUtils {
      * 获取IP所在城市
      *
      * @param ip IP地址
-     * @return IP所在城市
+     * @return IP所在城市 city
      */
     public static String getCity(String ip) {
         String city = "";
         try {
-            AddressIpVo ipv4 = getIPV4(ip);
+            AddressIpVo ipv4 = getIpv4(ip);
             city = ipv4.getCity();
             return city;
         } catch (MsUtilsException e) {
@@ -101,10 +123,16 @@ public class IpUtils {
         return null;
     }
 
+    /**
+     * Gets province.
+     *
+     * @param ip the ip
+     * @return the province
+     */
     public static String getProvince(String ip) {
         String province = "";
         try {
-            AddressIpVo ipv4 = getIPV4(ip);
+            AddressIpVo ipv4 = getIpv4(ip);
             province = ipv4.getRegion();
             return province;
         } catch (MsUtilsException e) {

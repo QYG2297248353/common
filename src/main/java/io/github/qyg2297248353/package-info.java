@@ -1,9 +1,12 @@
-package com.ms.common;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
+
+package io.github.qyg2297248353;
 /**
  * 工具包
  *
- * @Auther 萌森 Ms
- * @Created 2022/5/15 15:26
+ * @author 萌森 Ms
  */
 
 /*

@@ -1,5 +1,14 @@
-package com.ms.common.regular.regex;
+/*
+ * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
+ */
 
+package io.github.qyg2297248353.regular.regex;
+
+/**
+ * The type Regexp.
+ *
+ * @author Ms
+ */
 public class Regexp {
     /**
      * 正则表达式：验证邮箱
@@ -17,6 +26,9 @@ public class Regexp {
      * 正则表达式：验证IPV4地址
      */
     public static final String REGEX_IP_ADDR = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
+    /**
+     * The constant REGEX_LAN_IP_ADDR.
+     */
     public static final String REGEX_LAN_IP_ADDR = "(?:(?:10(?:(?:\\.1[0-9][0-9])|(?:\\.2[0-4][0-9])|(?:\\.25[0-5])|(?:\\.[1-9][0-9])|(?:\\.[0-9])))|(?:172(?:\\.(?:1[6-9])|(?:2[0-9])|(?:3[0-1])))|(?:192\\.168))(?:(?:\\.1[0-9][0-9])|(?:\\.2[0-4][0-9])|(?:\\.25[0-5])|(?:\\.[1-9][0-9])|(?:\\.[0-9])){2}";
     /**
      * 正则表达式：匹配非中文字符
@@ -30,16 +42,49 @@ public class Regexp {
      * 正则表达式：匹配企业名法人名
      */
     public static final String REGEX_CORP_ENTERPRISE = "[()\\(\\)]|(集团)|(企业)|(有限)|(股份)|(公司)|(合作)|(工作室)|(暂无)";
+    /**
+     * The constant REGEX_ID_CARD.
+     */
     public static final String REGEX_ID_CARD = "(^\\d{18}$)|(^\\d{15}$)";
+    /**
+     * The constant REGEX_URL.
+     */
     public static final String REGEX_URL = "http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?";
+    /**
+     * The constant REGEX_ZIP_CODE.
+     */
     public static final String REGEX_ZIP_CODE = "^[1-9][0-9]{5}$";
+    /**
+     * The constant REGEX_QQ.
+     */
     public static final String REGEX_QQ = "[1-9][0-9]{4,}";
+    /**
+     * The constant REGEX_DATE.
+     */
     public static final String REGEX_DATE = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$";
+    /**
+     * The constant REGEX_TIME.
+     */
     public static final String REGEX_TIME = "([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d";
+    /**
+     * The constant REGEX_DATE_TIME.
+     */
     public static final String REGEX_DATE_TIME = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) ([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d$";
+    /**
+     * The constant REGEX_DATE_TIME_SECOND.
+     */
     public static final String REGEX_DATE_TIME_SECOND = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) ([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{1,3}$";
+    /**
+     * The constant REGEX_DATE_TIME_SECOND_ZONE.
+     */
     public static final String REGEX_DATE_TIME_SECOND_ZONE = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) ([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d\\.\\d{1,3}\\+\\d{4}$";
+    /**
+     * The constant REGEX_DATE_TIME_SECOND_ZONE_WITHOUT_SECOND.
+     */
     public static final String REGEX_DATE_TIME_SECOND_ZONE_WITHOUT_SECOND = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) ([01]\\d|2[0-3]):[0-5]\\d$";
+    /**
+     * The constant REGEX_DATE_TIME_SECOND_ZONE_WITHOUT_SECOND_WITHOUT_ZONE.
+     */
     public static final String REGEX_DATE_TIME_SECOND_ZONE_WITHOUT_SECOND_WITHOUT_ZONE = "^(?:(?!0000)[0-9]{4}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]{2}(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29) ([01]\\d|2[0-3]):[0-5]\\d$";
     /**
      * 正则表达式：匹配空格、回车、换行符、制表符
