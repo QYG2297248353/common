@@ -7,6 +7,7 @@ package io.github.qyg2297248353.http.request.ip;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import io.github.qyg2297248353.exception.MsUtilsException;
+import io.github.qyg2297248353.http.request.RequestUtils;
 import io.github.qyg2297248353.regular.info.IpCharm;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -26,7 +27,6 @@ public class IpUtils {
     /**
      * The constant URI.
      */
-// ip解析地址
     public static final String URI = "http://ip-api.com/json/{}?lang=zh-CN&fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
 
     /**
@@ -54,22 +54,20 @@ public class IpUtils {
         }
         if (!ip.isEmpty()) {
             String uri = URI.replace("{}", ip);
-            Request requestHttp = new Request.Builder().url(uri).build();
             Response response;
             try {
-                response = new OkHttpClient().newCall(requestHttp).execute();
-                if (!response.isSuccessful()) {
-                    throw new MsUtilsException("获取IP地址失败，原因：请求失败");
-                }
-            } catch (IOException e) {
-                throw new MsUtilsException("获取IP地址失败，原因：请求超时");
+                response = RequestUtils.getRequest(uri);
+            } catch (MsUtilsException e) {
+                throw new MsUtilsException("获取IP地址失败，原因：请求失败");
+            }
+            if (!response.isSuccessful()) {
+                throw new MsUtilsException("获取IP地址失败，原因：响应状态异常");
             }
             try {
+                assert response.body() != null;
                 String json = response.body().string();
-                System.err.println(json);
                 JSONObject jsonObject = JSON.parseObject(json);
-                AddressIpVo addressIpVo = new AddressIpVo().parseResponse(jsonObject);
-                return addressIpVo;
+                return new AddressIpVo().parseResponse(jsonObject);
             } catch (IOException e) {
                 throw new MsUtilsException("获取IP地址失败，原因：解析失败");
             }

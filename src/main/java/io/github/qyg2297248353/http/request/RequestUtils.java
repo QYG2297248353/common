@@ -94,15 +94,4 @@ public class RequestUtils {
             throw new MsUtilsException("OkHttp 请求失败！", e);
         }
     }
-
-
-    public static void main(String[] args) {
-        try {
-            JSONObject requestJson = getRequestJson("https://www.umiware.com/v1/auth/publicKey/get");
-            System.out.println(requestJson);
-        } catch (MsUtilsException e) {
-            e.printStackTrace();
-        }
-
-    }
 }
