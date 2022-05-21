@@ -5,8 +5,8 @@
 package io.github.qyg2297248353.regular.info;
 
 
+import io.github.qyg2297248353.config.regular.RegexpConstant;
 import io.github.qyg2297248353.regular.basic.StingUtils;
-import io.github.qyg2297248353.regular.regex.Regexp;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -28,7 +28,7 @@ public class UccCharm {
         if (str.length() != 18) {
             return false;
         }
-        Pattern r = Pattern.compile(Regexp.REGEX_UCC);
+        Pattern r = Pattern.compile(RegexpConstant.REGEX_UCC);
         Matcher m = r.matcher(str);
         return m.matches();
     }

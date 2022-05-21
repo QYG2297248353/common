@@ -5,7 +5,7 @@
 package io.github.qyg2297248353.regular.basic;
 
 
-import io.github.qyg2297248353.regular.regex.Regexp;
+import io.github.qyg2297248353.config.regular.RegexpConstant;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,7 +25,7 @@ public class StingUtils {
     public static String replaceBlank(String str) {
         String dest = "";
         if (str != null) {
-            Pattern p = Pattern.compile(Regexp.REGEX_STRING);
+            Pattern p = Pattern.compile(RegexpConstant.REGEX_STRING);
             Matcher m = p.matcher(str);
             dest = m.replaceAll("");
         }

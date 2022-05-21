@@ -2,7 +2,7 @@
  * Ms.萌森工作室 Copyright (c) 2022. Java基本工具开发由萌森工作室倾情打造，请勿恶意转载！
  */
 
-package io.github.qyg2297248353.request.parse;
+package io.github.qyg2297248353.http.request.parse;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
@@ -16,7 +16,7 @@ import java.io.IOException;
  *
  * @author 萌森 Ms
  */
-public class RequestUtils {
+public class ParseRequestUtils {
     /**
      * 描述:获取 request 中 json 的JSONObject的内容
      *

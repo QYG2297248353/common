@@ -4,8 +4,8 @@
 
 package io.github.qyg2297248353.regular.info;
 
+import io.github.qyg2297248353.config.regular.RegexpConstant;
 import io.github.qyg2297248353.regular.basic.StingUtils;
-import io.github.qyg2297248353.regular.regex.Regexp;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +24,7 @@ public class IpCharm {
      */
     public static boolean isIp(String str) {
         str = StingUtils.replaceBlank(str);
-        Pattern r = Pattern.compile(Regexp.REGEX_IP_ADDR);
+        Pattern r = Pattern.compile(RegexpConstant.REGEX_IP_ADDR);
         Matcher m = r.matcher(str);
         return m.matches();
     }
@@ -38,7 +38,7 @@ public class IpCharm {
     public static boolean isIpv4(String str) {
         str = StingUtils.replaceBlank(str);
         if (isIp(str)) {
-            Pattern r = Pattern.compile(Regexp.REGEX_LAN_IP_ADDR);
+            Pattern r = Pattern.compile(RegexpConstant.REGEX_LAN_IP_ADDR);
             Matcher m = r.matcher(str);
             return !m.matches();
         }
