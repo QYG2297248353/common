@@ -54,7 +54,7 @@ public class JwtUtils {
         return jwtBuilder.compact();
     }
 
-    private interface BuildJwt {
+    public interface BuildJwt {
         /**
          * 自定义构建jwt
          *
@@ -62,5 +62,4 @@ public class JwtUtils {
          */
         void build(JwtBuilder jwtBuilder);
     }
-
 }
