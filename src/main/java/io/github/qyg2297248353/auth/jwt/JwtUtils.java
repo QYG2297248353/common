@@ -4,8 +4,9 @@
 
 package io.github.qyg2297248353.auth.jwt;
 
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
+import io.github.qyg2297248353.exception.MsUtilsException;
+import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.SignatureException;
 
 /**
  * Jwt工具
@@ -41,7 +42,7 @@ public class JwtUtils {
     }
 
     /**
-     * 自定义构建
+     * 自定义构建[内容]
      *
      * @param buildJwt buildJwt
      * @return jwt string
@@ -61,5 +62,57 @@ public class JwtUtils {
          * @param jwtBuilder jwtBuilder
          */
         void build(JwtBuilder jwtBuilder);
+    }
+
+    /**
+     * 自定义构建
+     *
+     * @return jwt string
+     */
+    public static String createJwt(CreateJwt create) {
+        JwtBuilder jwtBuilder = Jwts.builder();
+        jwtBuilder.setSubject(create.subject());
+        return jwtBuilder.compact();
+    }
+
+    public interface CreateJwt {
+        /**
+         * 设置主题
+         * @return 主题
+         */
+        String subject();
+    }
+
+    /**
+     * 解析默认生成jwt
+     *
+     * @param jwt jwt
+     * @return 解析jwt内容
+     * @throws MsUtilsException 解析异常
+     */
+    public Jws<Claims> decodeRsa(String jwt) throws MsUtilsException {
+        try {
+            return Jwts.parserBuilder().setSigningKey(JwConfig.getKey()).build().parseClaimsJws(jwt);
+        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException |
+                 IllegalArgumentException e) {
+            throw new MsUtilsException("jwt解析异常", e);
+        }
+    }
+
+    /**
+     * 解析主题jwt
+     *
+     * @param jwt     jwt
+     * @param subject 效验主题
+     * @return 解析jwt内容
+     * @throws MsUtilsException 解析异常
+     */
+    public Jws<Claims> decodeRsa(String jwt, String subject) throws MsUtilsException {
+        try {
+            return Jwts.parserBuilder().requireSubject(subject).setSigningKey(JwConfig.getKey()).build().parseClaimsJws(jwt);
+        } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException | SignatureException |
+                 IllegalArgumentException e) {
+            throw new MsUtilsException("jwt解析异常", e);
+        }
     }
 }

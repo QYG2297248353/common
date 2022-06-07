@@ -34,7 +34,7 @@
         <!--        </repository>-->
         <repository>
             <id>localRepository</id>
-            <url>file:D:\Program Files\Apache\maven\localRepository</url>
+            <url>file:D:\Program Files\apache-maven-3.8.3\repository</url>
         </repository>
     </distributionManagement>
 
